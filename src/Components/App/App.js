@@ -7,6 +7,12 @@ class App extends React.Component{
     favoriteCookie:''
   }
 
+
+  componentDidMount(){
+console.log(getCookie("favoriteCookie") );
+
+
+  }
   handleChange = ( event ) =>{
     this.setState({
       favoriteCookie: event.target.value

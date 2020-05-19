@@ -1,12 +1,14 @@
 const getCookie = ( name ) =>{
     console.log('in getCookie:', name);
-    
-}//end get
+    const cookieString = RegExp('' + name + '[^;]+').exec(document.cookie);
+    // Return everything after the equal sign, or an empty string if the cookie name not found
+    return decodeURIComponent(!!cookieString ? cookieString.toString().replace(/^[^=]+./, '') : '');
+}//end getCookie, MAGIC!
 
 const setCookie = ( name, value ) =>{
     console.log( 'in setCookie:', name, value);
     document.cookie=`${name}=${value}`;
-}//end set
+}//end setCookie
 
 export {
     getCookie, setCookie
